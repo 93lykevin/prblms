@@ -4,6 +4,7 @@
 //  [7,8,9]       [9,6,3]
 // ]
 
+// this is not easy/intuitive...
 const rotateMatrix = (matrix) => {
   const n = matrix.length;
   for (let i = 0; i < Math.floor((n + 1) / 2); i++) {
@@ -11,7 +12,7 @@ const rotateMatrix = (matrix) => {
     for (let j = 0; j < Math.floor(n / 2); j++) {
       // 1
       let temp = matrix[n - j - 1][i]; // 13
-      matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1];
+      matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1]; // matrix[3][2]
       matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1];
       matrix[j][n - i - 1] = matrix[i][j];
       matrix[i][j] = temp;
@@ -36,3 +37,5 @@ console.log(
     [15, 14, 12, 16],
   ])
 );
+
+// better to transpose and reverse
